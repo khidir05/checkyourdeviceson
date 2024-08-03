@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apakah Perangkat Anda Hidup?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .time-display {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Apakah Perangkat Anda Hidup?</h1>
+    <button id="check-button" onclick="showCurrentTime()">Cek Sekarang</button>
+    <div class="time-display" id="time-display"></div>
+
+    <script>
+        function showCurrentTime() {
+            const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"];
+
+            const now = new Date();
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+
+            const timeString = `Pada hari ${day}, tanggal ${date} ${month} ${year}, perangkat anda terpantau masih menyala.`;
+
+            // Menghilangkan judul dan tombol
+            document.getElementById('title').style.display = 'none';
+            document.getElementById('check-button').style.display = 'none';
+
+            // Menampilkan keterangan
+            document.getElementById('time-display').innerText = timeString;
+        }
+    </script>
+</body>
+</html>
